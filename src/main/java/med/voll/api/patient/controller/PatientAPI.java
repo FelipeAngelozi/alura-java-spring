@@ -31,7 +31,7 @@ public class PatientAPI {
 
     @PostMapping("/save")
     @Transactional
-    public ResponseEntity save(@RequestBody @Valid PatientSaveDTO patientSaveDTO, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<PatientResponseDTO> save(@RequestBody @Valid PatientSaveDTO patientSaveDTO, UriComponentsBuilder uriComponentsBuilder) {
         PatientResponseDTO patientResponseDTO = this.patientService.save(patientSaveDTO);
         URI uri = uriComponentsBuilder.path("patient/{id}").buildAndExpand(patientResponseDTO.id()).toUri();
         return ResponseEntity.created(uri).body(patientResponseDTO);
@@ -44,7 +44,7 @@ public class PatientAPI {
 
     @GetMapping("/get-by-id/{id}")
     public ResponseEntity<PatientResponseDTO> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(this.patientService.getById(id));
+        return ResponseEntity.ok(this.patientService.getPatientResponseDTOById(id));
     }
 
     @PutMapping("/update")

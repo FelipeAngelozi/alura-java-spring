@@ -10,8 +10,8 @@ import med.voll.api.patient.model.dto.PatientUpdateDTO;
 import java.util.Objects;
 
 @Entity
-@Table(name = "patients")
 @Data
+@Table(name = "patients")
 @NoArgsConstructor
 public class Patient {
 

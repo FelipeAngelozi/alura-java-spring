@@ -44,7 +44,15 @@ public class PatientService {
         patient.setActive(false);
     }
 
-    public PatientResponseDTO getById(Long id) {
+    public PatientResponseDTO getPatientResponseDTOById(Long id) {
         return new PatientResponseDTO(this.patientRepository.getById(id));
+    }
+
+    public Patient getById(Long id){
+        return this.patientRepository.findById(id).orElse(null);
+    }
+
+    public boolean verifyIfExists(Long id) {
+        return this.patientRepository.existsById(id);
     }
 }

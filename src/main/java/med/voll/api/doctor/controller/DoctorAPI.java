@@ -43,7 +43,7 @@ public class DoctorAPI {
 
     @GetMapping("/get-by-id/{id}")
     public ResponseEntity<DoctorResponseDTO> getById(@PathVariable Long id){
-        return ResponseEntity.ok(this.doctorService.getById(id));
+        return ResponseEntity.ok(this.doctorService.getDoctorResponseDTOById(id));
     }
 
     @PutMapping("/update")

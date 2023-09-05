@@ -44,7 +44,15 @@ public class DoctorService {
         doctor.setActive(false);
     }
 
-    public DoctorResponseDTO getById(Long id) {
+    public DoctorResponseDTO getDoctorResponseDTOById(Long id) {
         return new DoctorResponseDTO(this.doctorRepository.getById(id));
+    }
+
+    public Doctor getById(Long id) {
+        return this.doctorRepository.findById(id).orElse(null);
+    }
+
+    public boolean verifyIfExists(Long id) {
+        return this.doctorRepository.existsById(id);
     }
 }
