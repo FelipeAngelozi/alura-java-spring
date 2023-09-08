@@ -52,7 +52,7 @@ public class PatientService {
         return this.patientRepository.findById(id).orElse(null);
     }
 
-    public boolean verifyIfExists(Long id) {
+    public Boolean verifyIfExists(Long id) {
         return this.patientRepository.existsById(id);
     }
 }

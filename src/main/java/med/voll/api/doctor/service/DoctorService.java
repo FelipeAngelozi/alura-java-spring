@@ -6,11 +6,14 @@ import med.voll.api.doctor.model.dtos.DoctorSaveDTO;
 import med.voll.api.doctor.model.dtos.DoctorListDTO;
 import med.voll.api.doctor.model.dtos.DoctorUpdateDTO;
 import med.voll.api.doctor.model.dtos.DoctorResponseDTO;
+import med.voll.api.doctor.model.enums.DocRoles;
 import med.voll.api.doctor.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 @Service
 public class DoctorService {
@@ -55,4 +58,9 @@ public class DoctorService {
     public boolean verifyIfExists(Long id) {
         return this.doctorRepository.existsById(id);
     }
+
+    public Doctor getRandomAvaiblByRole(DocRoles docRole, LocalDateTime date) {
+        return this.doctorRepository.getRandomAvaiblByRole(docRole, date);
+    }
+
 }
