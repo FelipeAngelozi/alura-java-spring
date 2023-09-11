@@ -1,5 +1,6 @@
 package med.voll.api.doctor.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.api.doctor.model.dtos.DoctorSaveDTO;
@@ -19,6 +20,7 @@ import java.net.URI;
 
 @RequestMapping("/doctors")
 @RestController
+@SecurityRequirement(name = "bearer-key")
 public class DoctorAPI {
 
     DoctorService doctorService;

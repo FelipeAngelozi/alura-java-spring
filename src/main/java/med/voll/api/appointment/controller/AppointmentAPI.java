@@ -1,5 +1,6 @@
 package med.voll.api.appointment.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import med.voll.api.appointment.model.dto.AppointmentResponseDTO;
 import med.voll.api.appointment.model.dto.AppointmentSaveDTO;
@@ -16,6 +17,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/appointment")
+@SecurityRequirement(name = "bearer-key")
 public class AppointmentAPI {
 
     private final AppointmentService appointmentService;
