@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import med.voll.api.address.model.Address;
+import med.voll.api.address.model.AddressDTO;
 
 public record PatientSaveDTO (
         @NotBlank
@@ -18,5 +19,5 @@ public record PatientSaveDTO (
         String cpf,
         @NotNull
         @Valid
-        Address address) {
+        AddressDTO address) {
 }

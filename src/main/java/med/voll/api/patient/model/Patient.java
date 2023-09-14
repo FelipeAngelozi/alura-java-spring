@@ -36,7 +36,7 @@ public class Patient {
         this.email = patientSaveDTO.email();
         this.phone = patientSaveDTO.phone();
         this.cpf = patientSaveDTO.cpf();
-        this.address = patientSaveDTO.address();
+        this.address = new Address(patientSaveDTO.address());
     }
 
     public void updateFields(PatientUpdateDTO patientUpdateDTO) {
