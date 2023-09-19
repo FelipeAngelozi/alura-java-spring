@@ -38,8 +38,12 @@ class AppointmentAPITest {
     private AppointmentService appointmentService;
 
     @Autowired
-    public AppointmentAPITest(MockMvc mockMvc) {
+    public AppointmentAPITest(MockMvc mockMvc,
+                              JacksonTester<AppointmentSaveDTO> saveDTOJacksonTester,
+                              JacksonTester<AppointmentResponseDTO> responseDTOJacksonTester) {
         this.mockMvc = mockMvc;
+        this.saveDTOJacksonTester = saveDTOJacksonTester;
+        this.responseDTOJacksonTester = responseDTOJacksonTester;
     }
 
     @Test
@@ -68,9 +72,9 @@ class AppointmentAPITest {
                 )
                 .andReturn().getResponse();
 
-        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.CREATED.value());
 
-        var expectedJson = responseDTOJacksonTester.write(responseDTO);
+        var expectedJson = responseDTOJacksonTester.write(responseDTO).getJson();
 
         assertThat(response.getContentAsString()).isEqualTo(expectedJson);
     }
