@@ -1,2 +1,2 @@
-# alura-java-spring
-Curso de aprendizado de uso do spring e suas boas práticas.
+# project1-medical-app
+A back-end medical app project for study purposes.
